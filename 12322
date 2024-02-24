@@ -1,0 +1,96 @@
+-- Gui to Lua
+-- Version: 3.2
+
+-- Instances:
+
+local ScreenGui = Instance.new("ScreenGui")
+local Main = Instance.new("Frame")
+local TextLabel = Instance.new("TextLabel")
+local TextButton = Instance.new("TextButton")
+local TextButton_2 = Instance.new("TextButton")
+local TextLabel_2 = Instance.new("TextLabel")
+
+--Properties:
+
+ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+Main.Name = "Main"
+Main.Parent = ScreenGui
+Main.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Main.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Main.BorderSizePixel = 0
+Main.Position = UDim2.new(0.344095945, 0, 0.257201642, 0)
+Main.Size = UDim2.new(0, 422, 0, 235)
+
+TextLabel.Parent = Main
+TextLabel.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel.BorderColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel.BorderSizePixel = 0
+TextLabel.Size = UDim2.new(0, 422, 0, 48)
+TextLabel.Font = Enum.Font.Unknown
+TextLabel.Text = "TTF Fucker V1"
+TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel.TextSize = 14.000
+
+TextButton.Parent = Main
+TextButton.BackgroundColor3 = Color3.fromRGB(47, 0, 7)
+TextButton.BorderColor3 = Color3.fromRGB(255, 255, 255)
+TextButton.BorderSizePixel = 0
+TextButton.Position = UDim2.new(0, 0, 0.280851066, 0)
+TextButton.Size = UDim2.new(0, 207, 0, 137)
+TextButton.Font = Enum.Font.SourceSans
+TextButton.Text = "Crash Server"
+TextButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextButton.TextSize = 14.000
+TextButton.TextStrokeColor3 = Color3.fromRGB(255, 255, 255)
+TextButton.MouseButton1Down:connect(function()
+	for i, v in pairs(game:GetService("Workspace"):GetDescendants()) do
+		if v.ClassName == "Part" then
+			local args = {
+				[1] = "}11, { \n\n } ",
+				[2] = "}, { ",
+				[3] = {
+					["Position"] = v,
+					["SoundId"] = "rbxassetid://7117070061",
+					["Replicate"] = true,
+					["Volume"] = 9999999,
+					["Effects"] = true
+				}
+			}
+
+			game:GetService("ReplicatedStorage").ChatSystemMakeMessage:FireServer(unpack(args))
+		end
+	end
+end)
+
+TextButton_2.Parent = Main
+TextButton_2.BackgroundColor3 = Color3.fromRGB(47, 0, 7)
+TextButton_2.BorderColor3 = Color3.fromRGB(255, 255, 255)
+TextButton_2.BorderSizePixel = 0
+TextButton_2.Position = UDim2.new(0.528436005, 0, 0.280851066, 0)
+TextButton_2.Size = UDim2.new(0, 199, 0, 137)
+TextButton_2.Font = Enum.Font.SourceSans
+TextButton_2.Text = "Mehter Çal"
+TextButton_2.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextButton_2.TextSize = 14.000
+TextButton_2.MouseButton1Down:connect(function()
+	for i, v in pairs(game:GetDescendants()) do
+		if v.ClassName == "RemoteEvent" and v.Name == "AC6_FE_Sounds" then
+			local remote = v
+			remote:FireServer("newSound", "", workspace, "rbxassetid://1843217953", 1, 100, true)
+			remote:FireServer("playSound", "")
+		end
+	end
+end)
+
+TextLabel_2.Parent = Main
+TextLabel_2.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel_2.BorderColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_2.BorderSizePixel = 0
+TextLabel_2.Position = UDim2.new(0, 0, 0.795744658, 0)
+TextLabel_2.Size = UDim2.new(0, 422, 0, 48)
+TextLabel_2.Font = Enum.Font.Unknown
+TextLabel_2.Text = "Made By AGAR27TR4"
+TextLabel_2.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_2.TextSize = 14.000
